@@ -2,7 +2,7 @@
 
 sudo apt-add-repository ppa:ansible/ansible
 sudo apt update
-sudo apt install -y firewalld ansible maven 
+sudo apt install -y firewalld ansible maven git
 
 
 # Set up network configuration
