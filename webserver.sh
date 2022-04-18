@@ -11,13 +11,9 @@ sudo systemctl start firewalld
 sudo firewall-cmd --zone=public --add-port=8080/tcp --permanent
 sudo firewall-cmd --reload
 
-
+git clone -b GEOCIT-67-OCI https://github.com/eugenia-ponomarenko/SSITA-DevOps.git
 cd SSITA-DevOps
-
-# Install tomcat9
 ansible-playbook ./Ansible/play.yml
-
-# Deploy GeoCitizen on Tomcat9
 
 db_ip="10.0.0.120"
 
@@ -26,6 +22,9 @@ vm_host=$(curl --silent --url "www.ifconfig.me" | tr "\n" " ")
 
 old_dbip="postgresql:\/\/[a-zA-Z0-9.-]*"
 new_dbip="postgresql:\/\/$db_ip"
+
+# Repair index.html favicon
+sed -i "s/\\/src\\/assets/\\.\\/static/g" src/main/webapp/index.html
 
 ## fix webserver ip
 sed -i "s/$old_serverip/$vm_host/g" ./src/main/java/com/softserveinc/geocitizen/configuration/MongoConfig.java   
