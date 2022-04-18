@@ -1,0 +1,14 @@
+---
+- hosts: localhost
+  connection: local 
+  become: yes               
+  become_method: sudo       
+  remote_user: ubuntu       
+  
+  vars:
+    tomcat_ver: 9.0.62                      
+    ui_user: login                    
+    ui_pass: passwd 
+
+  roles:
+    - tomcat9
