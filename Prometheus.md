@@ -297,3 +297,5 @@ server {
 ## DATA OMMITED
 
 ```
+
+[Variety of exporters](https://github.com/prometheus/prometheus/wiki/Default-port-allocations)
