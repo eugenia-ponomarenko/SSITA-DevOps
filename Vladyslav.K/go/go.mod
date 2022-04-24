@@ -1,4 +1,4 @@
-module vladkarok/testlabgo
+module vladkarok/go
 
 go 1.18
 
