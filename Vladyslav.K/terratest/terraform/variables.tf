@@ -2,9 +2,7 @@
 variable "aws_region" {
   default = "eu-north-1"
 }
-variable "nexus_docker_password" {
-  default = "Qwerty1982.9"
-}
+variable "nexus_docker_password" {}
 variable "node_exporter_VERSION" {
   default = "1.3.0"
 }
