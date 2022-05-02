@@ -17,7 +17,7 @@ func main() {
 	b, _ = strconv.Atoi(os.Args[2])
 	c, _ = strconv.Atoi(os.Args[3])
 	max, min := Minmax(a, b, c)
-	fmt.Printf("Max number is %v\nMin number is %v", max, min)
+	fmt.Printf("Max number is %v\nMin number is %v\n", max, min)
 }
 
 func Minmax(a int, b int, c int) (int, int) {
