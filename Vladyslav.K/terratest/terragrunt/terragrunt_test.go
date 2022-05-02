@@ -8,7 +8,10 @@ import (
 	"testing"
 	"time"
 )
-
+/*
+USAGE
+go test -v -run TestTerragruntMyconfig -timeout 30m
+*/
 func TestTerragruntMyconfig(t *testing.T) {
 	// website::tag::3:: Construct the terraform options with default retryable errors to handle the most common retryable errors in terraform testing.
 	terraformOptions := terraform.WithDefaultRetryableErrors(t, &terraform.Options{
