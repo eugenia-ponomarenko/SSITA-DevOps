@@ -3,6 +3,7 @@
 - [Sonarqube](#sonarqube)
   - [Installation](#installation)
   - [Configuration](#configuration)
+  - [Fixing project](#fixing-project)
     
 
 
@@ -90,6 +91,11 @@ su - postgres
 Let’s create a new database user:
 ```
 createuser sonar
+```
+Enter the postgresql
+
+```
+psql
 ```
 
 Set a password for the sonar user with the command:
@@ -283,5 +289,196 @@ sudo certbot --nginx -d YOUR_DOMAIN.com -d www.YOUR_DOMAIN.com
 
 ## Configuration
 
-https://docs.sonarqube.org/latest/analysis/github-integration/
+You can optionally configure GitHub integration, just follow thos guide.
 
+https://docs.sonarqube.org/latest/analysis/github-integration/  
+
+Also this is the official guide to create github app:  
+https://docs.github.com/en/developers/apps/building-github-apps/creating-a-github-app
+
+And install this app to your account
+
+https://docs.github.com/en/developers/apps/managing-github-apps/installing-github-apps
+
+After APP creation, you can navigate to your sonarqube `Administration/Configuration/General Configuration/ALM Integrations` where you can click on `GitHub` and configure it with nessesary information you created on previous steps:  
+![](img/1.jpg)  
+After that you should be able to see successful message:  
+![](img/2.jpg)  
+Then you can go in your SonarQube main page and click on `Add project` and Github will be added as an option.  
+![](img/3.jpg)  
+Then select organization and repository:  
+![](img/4.jpg)  
+Then click on `Set up selected repository` button and you will be able to see next message:
+![](img/5.jpg)  
+We will choose **Jenkins**  
+![](img/6.jpg)  
+You can follow along this recomendations. Remember to add `<sonar.projectKey>` to **pom.xml** as said in example.  
+But wher we are talking about Jenkins pipeline I recommend to use examples from documentation https://sonar.vladkarok.ml/documentation/analysis/scan/sonarscanner-for-jenkins/  
+
+
+```groovy
+pipeline {
+    agent any
+    stages {
+        stage('SCM') {
+            steps {
+                git url: 'https://github.com/foo/bar.git'
+            }
+        }
+        stage('build && SonarQube analysis') {
+            steps {
+                withSonarQubeEnv('My SonarQube Server') {
+                    // Optionally use a Maven environment you've configured already
+                    withMaven(maven:'Maven 3.5') {
+                        sh 'mvn clean package sonar:sonar'
+                    }
+                }
+            }
+        }
+        stage("Quality Gate") {
+            steps {
+                timeout(time: 1, unit: 'HOURS') {
+                    // Parameter indicates whether to set pipeline to UNSTABLE if Quality Gate fails
+                    // true = set pipeline to UNSTABLE, false = don't
+                    waitForQualityGate abortPipeline: true
+                }
+            }
+        }
+    }
+}
+```
+
+
+## Fixing project
+
+In general, we need to fix `pom.xml`.  
+First - add `<sonar.projectKey>` as said on previous steps.  
+Then we need to [install](https://mvnrepository.com/artifact/org.sonarsource.scanner.maven/sonar-maven-plugin) `sonar-maven-plugin` in dependencies section:
+
+```xml
+<dependency>
+    <groupId>org.sonarsource.scanner.maven</groupId>
+    <artifactId>sonar-maven-plugin</artifactId>
+    <version>3.9.1.2184</version>
+</dependency>
+```
+
+Then in `build` section add [jacoco](https://mvnrepository.com/artifact/org.jacoco/jacoco-maven-plugin) plugin
+
+```xml
+<plugin>
+    <groupId>org.jacoco</groupId>
+    <artifactId>jacoco-maven-plugin</artifactId>
+    <version>0.8.7</version>
+    <executions>
+        <execution>
+            <id>prepare-agent</id>
+		        <goals>
+		            <goal>prepare-agent</goal>
+		        </goals>
+		    </execution>
+		    <execution>
+		        <id>generate-report</id>
+		        <phase>verify</phase>
+		        <goals>
+		            <goal>report</goal>
+		        </goals>
+		    </execution>
+		</executions>
+</plugin>
+```
+
+And [surefire](https://maven.apache.org/surefire/maven-surefire-report-plugin/usage.html) plugin
+
+```xml
+<plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-surefire-plugin</artifactId>
+    <version>3.0.0-M6</version>
+   	<configuration>
+   	    <testFailureIgnore>true</testFailureIgnore>
+   	</configuration>
+</plugin>
+```
+
+And we need to remove `@Ignore` strings in test files.
+
+```
+find src/test/java/com/softserveinc/geocitizen -type f -exec sed -i "s/^\\@Ignore/\\/\\/@Ignore/g" {} +
+```
+
+Also we need to have accessible database for testing.
+
+In the end we will have the next pipeline:
+  
+```groovy
+
+pipeline {
+    agent {
+        label 'maven'
+    }
+    environment {
+        sonar_username = credentials('sonar_db_username')
+        sonar_password = credentials('sonar_db_password')
+        sonar_database = credentials('sonar_db_database')
+        sonar_db_ip    = '10.138.0.17'
+    }
+    stages {
+        stage('SCM') {
+            steps {
+                git branch: 'main', credentialsId: 'github-ssh', url: 'git@github.com:Vladkarok/Geocit134.git'
+            }
+        }
+        stage('build') {
+            steps {
+                withMaven(maven:'3.6.3') {
+                    sh '''#!/bin/bash
+                        find src/test/java/com/softserveinc/geocitizen -type f -exec sed -i "s/^\\@Ignore/\\/\\/@Ignore/g" {} + 
+                        sed -i -E \\
+                            "s/(db.username=postgres)/db.username=${sonar_username}/g;
+                            s/(db.password=postgres)/db.password=${sonar_password}/g;
+                            s/(postgresql:\\/\\/localhost)/postgresql:\\/\\/${sonar_db_ip}/g
+                            s/(ss_demo_1)$/${sonar_database}/g;" src/main/resources/application.properties
+                        mvn clean verify
+                        '''
+                }
+            }
+        }
+        stage('SonarQube analysis') {
+            steps {
+                withSonarQubeEnv('MySonarQube') {
+                    // Optionally use a Maven environment you've configured already
+                    withMaven(maven:'3.6.3') {
+                        sh 'mvn sonar:sonar'
+                    }
+                }
+            }
+        }
+        stage("Quality Gate") {
+            steps {
+                timeout(time: 1, unit: 'HOURS') {
+                    // Parameter indicates whether to set pipeline to UNSTABLE if Quality Gate fails
+                    // true = set pipeline to UNSTABLE, false = don't
+                    waitForQualityGate abortPipeline: true
+                }
+            }
+        }
+    }
+    post {
+        always {
+            cleanWs()
+        }
+    }  
+}
+```
+
+We can optionally add to Jenkins plugin - [JaCoCo plugin](https://plugins.jenkins.io/jacoco/)
+
+After that you can run the pipeline and see the results in SonarQube.
+
+Here are some sample screenshots from Jenkins and SonarQube:
+
+![](img/7.jpg)  
+![](img/8.jpg)
+![](img/9.jpg)
+![](img/10.jpg)
