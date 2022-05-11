@@ -8,6 +8,7 @@ import (
 	"testing"
 	"time"
 )
+
 /*
 USAGE
 go test -v -run TestTerragruntMyconfig -timeout 30m
@@ -16,14 +17,14 @@ func TestTerragruntMyconfig(t *testing.T) {
 	// website::tag::3:: Construct the terraform options with default retryable errors to handle the most common retryable errors in terraform testing.
 	terraformOptions := terraform.WithDefaultRetryableErrors(t, &terraform.Options{
 		// website::tag::1:: Set the path to the Terragrunt module that will be tested.
-		TerraformDir: "test",
+		TerraformDir: "../terragrunt/test",
 		// website::tag::2:: Set the terraform binary path to terragrunt so that terratest uses terragrunt instead of terraform. You must ensure that you have terragrunt downloaded and available in your PATH.
 		TerraformBinary: "terragrunt",
 	})
 	// Options for output lb dns
 	terraformOptionsOutput := terraform.WithDefaultRetryableErrors(t, &terraform.Options{
 		// website::tag::1:: Set the path to the Terragrunt module that will be tested.
-		TerraformDir: "test/alb",
+		TerraformDir: "../terragrunt/test/alb",
 		// website::tag::2:: Set the terraform binary path to terragrunt so that terratest uses terragrunt instead of terraform. You must ensure that you have terragrunt downloaded and available in your PATH.
 		TerraformBinary: "terragrunt",
 	})
