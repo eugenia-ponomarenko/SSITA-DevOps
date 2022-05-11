@@ -1,0 +1,75 @@
+{"Time":"2022-05-05T23:27:43.712755638Z","Action":"run","Package":"vladkarok/go","Test":"TestFibonacciFunction"}
+{"Time":"2022-05-05T23:27:43.71295283Z","Action":"output","Package":"vladkarok/go","Test":"TestFibonacciFunction","Output":"=== RUN   TestFibonacciFunction\n"}
+{"Time":"2022-05-05T23:27:43.712974156Z","Action":"run","Package":"vladkarok/go","Test":"TestFibonacciFunction/Test_1"}
+{"Time":"2022-05-05T23:27:43.712982936Z","Action":"output","Package":"vladkarok/go","Test":"TestFibonacciFunction/Test_1","Output":"=== RUN   TestFibonacciFunction/Test_1\n"}
+{"Time":"2022-05-05T23:27:43.712992589Z","Action":"run","Package":"vladkarok/go","Test":"TestFibonacciFunction/Test_2"}
+{"Time":"2022-05-05T23:27:43.713001112Z","Action":"output","Package":"vladkarok/go","Test":"TestFibonacciFunction/Test_2","Output":"=== RUN   TestFibonacciFunction/Test_2\n"}
+{"Time":"2022-05-05T23:27:43.713010133Z","Action":"run","Package":"vladkarok/go","Test":"TestFibonacciFunction/Test_3"}
+{"Time":"2022-05-05T23:27:43.713018182Z","Action":"output","Package":"vladkarok/go","Test":"TestFibonacciFunction/Test_3","Output":"=== RUN   TestFibonacciFunction/Test_3\n"}
+{"Time":"2022-05-05T23:27:43.713026942Z","Action":"run","Package":"vladkarok/go","Test":"TestFibonacciFunction/Test_4"}
+{"Time":"2022-05-05T23:27:43.713035006Z","Action":"output","Package":"vladkarok/go","Test":"TestFibonacciFunction/Test_4","Output":"=== RUN   TestFibonacciFunction/Test_4\n"}
+{"Time":"2022-05-05T23:27:43.713043536Z","Action":"run","Package":"vladkarok/go","Test":"TestFibonacciFunction/Test_5"}
+{"Time":"2022-05-05T23:27:43.713050833Z","Action":"output","Package":"vladkarok/go","Test":"TestFibonacciFunction/Test_5","Output":"=== RUN   TestFibonacciFunction/Test_5\n"}
+{"Time":"2022-05-05T23:27:43.713058591Z","Action":"run","Package":"vladkarok/go","Test":"TestFibonacciFunction/Test_6"}
+{"Time":"2022-05-05T23:27:43.713067462Z","Action":"output","Package":"vladkarok/go","Test":"TestFibonacciFunction/Test_6","Output":"=== RUN   TestFibonacciFunction/Test_6\n"}
+{"Time":"2022-05-05T23:27:43.713076676Z","Action":"run","Package":"vladkarok/go","Test":"TestFibonacciFunction/Test_7"}
+{"Time":"2022-05-05T23:27:43.713085393Z","Action":"output","Package":"vladkarok/go","Test":"TestFibonacciFunction/Test_7","Output":"=== RUN   TestFibonacciFunction/Test_7\n"}
+{"Time":"2022-05-05T23:27:43.713092472Z","Action":"run","Package":"vladkarok/go","Test":"TestFibonacciFunction/Test_8"}
+{"Time":"2022-05-05T23:27:43.71309968Z","Action":"output","Package":"vladkarok/go","Test":"TestFibonacciFunction/Test_8","Output":"=== RUN   TestFibonacciFunction/Test_8\n"}
+{"Time":"2022-05-05T23:27:43.713107451Z","Action":"run","Package":"vladkarok/go","Test":"TestFibonacciFunction/Test_9"}
+{"Time":"2022-05-05T23:27:43.713114731Z","Action":"output","Package":"vladkarok/go","Test":"TestFibonacciFunction/Test_9","Output":"=== RUN   TestFibonacciFunction/Test_9\n"}
+{"Time":"2022-05-05T23:27:43.713122741Z","Action":"run","Package":"vladkarok/go","Test":"TestFibonacciFunction/Test_10"}
+{"Time":"2022-05-05T23:27:43.713130022Z","Action":"output","Package":"vladkarok/go","Test":"TestFibonacciFunction/Test_10","Output":"=== RUN   TestFibonacciFunction/Test_10\n"}
+{"Time":"2022-05-05T23:27:43.71314317Z","Action":"output","Package":"vladkarok/go","Test":"TestFibonacciFunction","Output":"--- PASS: TestFibonacciFunction (0.00s)\n"}
+{"Time":"2022-05-05T23:27:43.713152528Z","Action":"output","Package":"vladkarok/go","Test":"TestFibonacciFunction/Test_1","Output":"    --- PASS: TestFibonacciFunction/Test_1 (0.00s)\n"}
+{"Time":"2022-05-05T23:27:43.713161479Z","Action":"pass","Package":"vladkarok/go","Test":"TestFibonacciFunction/Test_1","Elapsed":0}
+{"Time":"2022-05-05T23:27:43.713172347Z","Action":"output","Package":"vladkarok/go","Test":"TestFibonacciFunction/Test_2","Output":"    --- PASS: TestFibonacciFunction/Test_2 (0.00s)\n"}
+{"Time":"2022-05-05T23:27:43.713180202Z","Action":"pass","Package":"vladkarok/go","Test":"TestFibonacciFunction/Test_2","Elapsed":0}
+{"Time":"2022-05-05T23:27:43.713197152Z","Action":"output","Package":"vladkarok/go","Test":"TestFibonacciFunction/Test_3","Output":"    --- PASS: TestFibonacciFunction/Test_3 (0.00s)\n"}
+{"Time":"2022-05-05T23:27:43.713214746Z","Action":"pass","Package":"vladkarok/go","Test":"TestFibonacciFunction/Test_3","Elapsed":0}
+{"Time":"2022-05-05T23:27:43.713223362Z","Action":"output","Package":"vladkarok/go","Test":"TestFibonacciFunction/Test_4","Output":"    --- PASS: TestFibonacciFunction/Test_4 (0.00s)\n"}
+{"Time":"2022-05-05T23:27:43.713231927Z","Action":"pass","Package":"vladkarok/go","Test":"TestFibonacciFunction/Test_4","Elapsed":0}
+{"Time":"2022-05-05T23:27:43.713239517Z","Action":"output","Package":"vladkarok/go","Test":"TestFibonacciFunction/Test_5","Output":"    --- PASS: TestFibonacciFunction/Test_5 (0.00s)\n"}
+{"Time":"2022-05-05T23:27:43.713247658Z","Action":"pass","Package":"vladkarok/go","Test":"TestFibonacciFunction/Test_5","Elapsed":0}
+{"Time":"2022-05-05T23:27:43.713255096Z","Action":"output","Package":"vladkarok/go","Test":"TestFibonacciFunction/Test_6","Output":"    --- PASS: TestFibonacciFunction/Test_6 (0.00s)\n"}
+{"Time":"2022-05-05T23:27:43.713263057Z","Action":"pass","Package":"vladkarok/go","Test":"TestFibonacciFunction/Test_6","Elapsed":0}
+{"Time":"2022-05-05T23:27:43.713270496Z","Action":"output","Package":"vladkarok/go","Test":"TestFibonacciFunction/Test_7","Output":"    --- PASS: TestFibonacciFunction/Test_7 (0.00s)\n"}
+{"Time":"2022-05-05T23:27:43.713278362Z","Action":"pass","Package":"vladkarok/go","Test":"TestFibonacciFunction/Test_7","Elapsed":0}
+{"Time":"2022-05-05T23:27:43.71328583Z","Action":"output","Package":"vladkarok/go","Test":"TestFibonacciFunction/Test_8","Output":"    --- PASS: TestFibonacciFunction/Test_8 (0.00s)\n"}
+{"Time":"2022-05-05T23:27:43.713294152Z","Action":"pass","Package":"vladkarok/go","Test":"TestFibonacciFunction/Test_8","Elapsed":0}
+{"Time":"2022-05-05T23:27:43.713302023Z","Action":"output","Package":"vladkarok/go","Test":"TestFibonacciFunction/Test_9","Output":"    --- PASS: TestFibonacciFunction/Test_9 (0.00s)\n"}
+{"Time":"2022-05-05T23:27:43.713310499Z","Action":"pass","Package":"vladkarok/go","Test":"TestFibonacciFunction/Test_9","Elapsed":0}
+{"Time":"2022-05-05T23:27:43.713318471Z","Action":"output","Package":"vladkarok/go","Test":"TestFibonacciFunction/Test_10","Output":"    --- PASS: TestFibonacciFunction/Test_10 (0.00s)\n"}
+{"Time":"2022-05-05T23:27:43.713326412Z","Action":"pass","Package":"vladkarok/go","Test":"TestFibonacciFunction/Test_10","Elapsed":0}
+{"Time":"2022-05-05T23:27:43.713333036Z","Action":"pass","Package":"vladkarok/go","Test":"TestFibonacciFunction","Elapsed":0}
+{"Time":"2022-05-05T23:27:43.71333965Z","Action":"run","Package":"vladkarok/go","Test":"TestCheckInput"}
+{"Time":"2022-05-05T23:27:43.713346879Z","Action":"output","Package":"vladkarok/go","Test":"TestCheckInput","Output":"=== RUN   TestCheckInput\n"}
+{"Time":"2022-05-05T23:27:43.713354308Z","Action":"run","Package":"vladkarok/go","Test":"TestCheckInput/Test_1"}
+{"Time":"2022-05-05T23:27:43.71336191Z","Action":"output","Package":"vladkarok/go","Test":"TestCheckInput/Test_1","Output":"=== RUN   TestCheckInput/Test_1\n"}
+{"Time":"2022-05-05T23:27:43.713369613Z","Action":"run","Package":"vladkarok/go","Test":"TestCheckInput/Test_2"}
+{"Time":"2022-05-05T23:27:43.713376638Z","Action":"output","Package":"vladkarok/go","Test":"TestCheckInput/Test_2","Output":"=== RUN   TestCheckInput/Test_2\n"}
+{"Time":"2022-05-05T23:27:43.713390731Z","Action":"run","Package":"vladkarok/go","Test":"TestCheckInput/Test_3"}
+{"Time":"2022-05-05T23:27:43.713398593Z","Action":"output","Package":"vladkarok/go","Test":"TestCheckInput/Test_3","Output":"=== RUN   TestCheckInput/Test_3\n"}
+{"Time":"2022-05-05T23:27:43.71340998Z","Action":"run","Package":"vladkarok/go","Test":"TestCheckInput/Test_4"}
+{"Time":"2022-05-05T23:27:43.713417285Z","Action":"output","Package":"vladkarok/go","Test":"TestCheckInput/Test_4","Output":"=== RUN   TestCheckInput/Test_4\n"}
+{"Time":"2022-05-05T23:27:43.713425412Z","Action":"run","Package":"vladkarok/go","Test":"TestCheckInput/Test_5"}
+{"Time":"2022-05-05T23:27:43.713432972Z","Action":"output","Package":"vladkarok/go","Test":"TestCheckInput/Test_5","Output":"=== RUN   TestCheckInput/Test_5\n"}
+{"Time":"2022-05-05T23:27:43.713447815Z","Action":"run","Package":"vladkarok/go","Test":"TestCheckInput/Test_6"}
+{"Time":"2022-05-05T23:27:43.713454819Z","Action":"output","Package":"vladkarok/go","Test":"TestCheckInput/Test_6","Output":"=== RUN   TestCheckInput/Test_6\n"}
+{"Time":"2022-05-05T23:27:43.713463326Z","Action":"output","Package":"vladkarok/go","Test":"TestCheckInput","Output":"--- PASS: TestCheckInput (0.00s)\n"}
+{"Time":"2022-05-05T23:27:43.713473634Z","Action":"output","Package":"vladkarok/go","Test":"TestCheckInput/Test_1","Output":"    --- PASS: TestCheckInput/Test_1 (0.00s)\n"}
+{"Time":"2022-05-05T23:27:43.71348122Z","Action":"pass","Package":"vladkarok/go","Test":"TestCheckInput/Test_1","Elapsed":0}
+{"Time":"2022-05-05T23:27:43.713489071Z","Action":"output","Package":"vladkarok/go","Test":"TestCheckInput/Test_2","Output":"    --- PASS: TestCheckInput/Test_2 (0.00s)\n"}
+{"Time":"2022-05-05T23:27:43.713502324Z","Action":"pass","Package":"vladkarok/go","Test":"TestCheckInput/Test_2","Elapsed":0}
+{"Time":"2022-05-05T23:27:43.713511153Z","Action":"output","Package":"vladkarok/go","Test":"TestCheckInput/Test_3","Output":"    --- PASS: TestCheckInput/Test_3 (0.00s)\n"}
+{"Time":"2022-05-05T23:27:43.713520478Z","Action":"pass","Package":"vladkarok/go","Test":"TestCheckInput/Test_3","Elapsed":0}
+{"Time":"2022-05-05T23:27:43.713536859Z","Action":"output","Package":"vladkarok/go","Test":"TestCheckInput/Test_4","Output":"    --- PASS: TestCheckInput/Test_4 (0.00s)\n"}
+{"Time":"2022-05-05T23:27:43.713545788Z","Action":"pass","Package":"vladkarok/go","Test":"TestCheckInput/Test_4","Elapsed":0}
+{"Time":"2022-05-05T23:27:43.71355631Z","Action":"output","Package":"vladkarok/go","Test":"TestCheckInput/Test_5","Output":"    --- PASS: TestCheckInput/Test_5 (0.00s)\n"}
+{"Time":"2022-05-05T23:27:43.713570669Z","Action":"pass","Package":"vladkarok/go","Test":"TestCheckInput/Test_5","Elapsed":0}
+{"Time":"2022-05-05T23:27:43.713580033Z","Action":"output","Package":"vladkarok/go","Test":"TestCheckInput/Test_6","Output":"    --- PASS: TestCheckInput/Test_6 (0.00s)\n"}
+{"Time":"2022-05-05T23:27:43.713588498Z","Action":"pass","Package":"vladkarok/go","Test":"TestCheckInput/Test_6","Elapsed":0}
+{"Time":"2022-05-05T23:27:43.713596995Z","Action":"pass","Package":"vladkarok/go","Test":"TestCheckInput","Elapsed":0}
+{"Time":"2022-05-05T23:27:43.713608456Z","Action":"output","Package":"vladkarok/go","Output":"PASS\n"}
+{"Time":"2022-05-05T23:27:43.713661892Z","Action":"output","Package":"vladkarok/go","Output":"ok  \tvladkarok/go\t0.003s\n"}
+{"Time":"2022-05-05T23:27:43.71368392Z","Action":"pass","Package":"vladkarok/go","Elapsed":0.003}

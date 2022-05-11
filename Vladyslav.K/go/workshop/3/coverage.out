@@ -1,0 +1,25 @@
+mode: set
+vladkarok/go/workshop/3/main.go:17.37,19.20 2 1
+vladkarok/go/workshop/3/main.go:19.20,20.13 1 1
+vladkarok/go/workshop/3/main.go:20.13,23.4 2 1
+vladkarok/go/workshop/3/main.go:23.9,23.20 1 1
+vladkarok/go/workshop/3/main.go:23.20,27.4 3 1
+vladkarok/go/workshop/3/main.go:27.9,31.4 3 1
+vladkarok/go/workshop/3/main.go:35.45,36.18 1 1
+vladkarok/go/workshop/3/main.go:42.2,42.47 1 1
+vladkarok/go/workshop/3/main.go:45.2,46.23 2 1
+vladkarok/go/workshop/3/main.go:49.2,49.24 1 1
+vladkarok/go/workshop/3/main.go:52.2,52.26 1 1
+vladkarok/go/workshop/3/main.go:36.18,38.3 1 1
+vladkarok/go/workshop/3/main.go:42.47,44.3 1 1
+vladkarok/go/workshop/3/main.go:46.23,48.3 1 1
+vladkarok/go/workshop/3/main.go:49.24,51.3 1 0
+vladkarok/go/workshop/3/main.go:55.13,59.38 4 0
+vladkarok/go/workshop/3/main.go:62.2,62.30 1 0
+vladkarok/go/workshop/3/main.go:66.2,67.15 2 0
+vladkarok/go/workshop/3/main.go:71.2,73.37 3 0
+vladkarok/go/workshop/3/main.go:76.2,76.21 1 0
+vladkarok/go/workshop/3/main.go:59.38,61.3 1 0
+vladkarok/go/workshop/3/main.go:62.30,65.3 2 0
+vladkarok/go/workshop/3/main.go:67.15,70.3 2 0
+vladkarok/go/workshop/3/main.go:73.37,75.3 1 0

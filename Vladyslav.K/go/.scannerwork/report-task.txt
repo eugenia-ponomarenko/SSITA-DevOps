@@ -1,0 +1,6 @@
+projectKey=Terratest
+serverUrl=https://sonar.vladkarok.ml
+serverVersion=9.4.0.54424
+dashboardUrl=https://sonar.vladkarok.ml/dashboard?id=Terratest
+ceTaskId=AYCWPhkr-g-ZRqrKeSBr
+ceTaskUrl=https://sonar.vladkarok.ml/api/ce/task?id=AYCWPhkr-g-ZRqrKeSBr

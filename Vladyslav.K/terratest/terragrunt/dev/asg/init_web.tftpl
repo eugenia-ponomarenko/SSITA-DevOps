@@ -1,0 +1,67 @@
+#!/bin/bash
+set -ex
+## Update the system
+sudo apt-get update
+sudo apt-get install -y \
+    ca-certificates \
+    curl \
+    gnupg \
+    lsb-release
+## Install Docker
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
+  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo apt-get update
+sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin
+sudo usermod -a -G docker ubuntu
+
+## Install docker-compose
+#sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+#sudo chmod +x /usr/local/bin/docker-compose
+
+## Create docker-compose.yml
+sudo sh -c 'cat > /opt/docker-compose.yml' << SOF
+version: "3.9"
+services:
+  geocit_web:
+    image: nexus.vladkarok.ml:5000/geocit:latest
+    restart: always
+    ports:
+      - "8080:8080"
+SOF
+
+## Perform docker login
+sudo docker login --username geo-docker --password ${docker_password} nexus.vladkarok.ml:5000
+
+## Build and run image using docker-compose
+cd /opt
+sudo docker compose up -d
+
+
+sudo wget https://github.com/prometheus/node_exporter/releases/download/v${VERSION}/node_exporter-${VERSION}.linux-amd64.tar.gz
+sudo useradd --no-create-home --shell /bin/false node_exporter
+sudo tar xvfz node_exporter-${VERSION}.linux-amd64.tar.gz
+sudo chown node_exporter:node_exporter node_exporter-${VERSION}.linux-amd64/node_exporter
+sudo mv node_exporter-${VERSION}.linux-amd64/node_exporter /usr/local/bin/node_exporter
+sudo rm -rf node_exporter-${VERSION}.linux-amd64 node_exporter-${VERSION}.linux-amd64.tar.gz
+
+sudo sh -c 'cat > /etc/systemd/system/node_exporter.service' << SOF
+[Unit]
+Description=Node Exporter
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+User=node_exporter
+Group=node_exporter
+Type=simple
+ExecStart=/usr/local/bin/node_exporter --collector.ethtool --collector.network_route --collector.systemd
+
+[Install]
+WantedBy=multi-user.target
+SOF
+
+sudo systemctl daemon-reload
+sudo systemctl start node_exporter
+sudo systemctl enable node_exporter
