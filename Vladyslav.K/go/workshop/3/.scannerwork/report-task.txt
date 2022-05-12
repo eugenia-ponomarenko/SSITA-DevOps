@@ -1,6 +1,6 @@
-projectKey=Terratest
+projectKey=Workshop-3
 serverUrl=https://sonar.vladkarok.ml
 serverVersion=9.4.0.54424
-dashboardUrl=https://sonar.vladkarok.ml/dashboard?id=Terratest
-ceTaskId=AYCWkGW_zAN3-zPyferw
-ceTaskUrl=https://sonar.vladkarok.ml/api/ce/task?id=AYCWkGW_zAN3-zPyferw
+dashboardUrl=https://sonar.vladkarok.ml/dashboard?id=Workshop-3
+ceTaskId=AYCzumg5zAN3-zPyfesW
+ceTaskUrl=https://sonar.vladkarok.ml/api/ce/task?id=AYCzumg5zAN3-zPyfesW
